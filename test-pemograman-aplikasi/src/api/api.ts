@@ -1,19 +1,18 @@
 import { UserDataInterface } from "@/interfaces/userDataInterface";
-
-const baseUrl = "http://localhost:3000";
+import { axiosInstance } from "@/lib/axiosInstance";
 
 export const getUser = async () => {
-  const response = await fetch(`${baseUrl}/users`);
-  return response.json();
+  const response = await axiosInstance.get("/users");
+  return response.data;
 };
 
 export const addUser = async (data: UserDataInterface) => {
-  const response = await fetch(`${baseUrl}/users`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  return response.json();
+  const response = await axiosInstance.post("/users", data);
+  return response.data;
+};
+
+//!! For some reason json-server still using old data so it will always return 404
+export const deleteUser = async (id: number) => {
+  const response = await axiosInstance.delete(`/users/${id}`);
+  return response.data;
 };

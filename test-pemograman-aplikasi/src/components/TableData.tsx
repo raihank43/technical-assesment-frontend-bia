@@ -84,8 +84,16 @@ export default function TableData({
                   </td>
                   <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700 flex justify-center gap-2">
                     <ViewComponents />
-                    <UpdateUserComponents />
-                    <DeleteButton />
+                    <UpdateUserComponents
+                      userData={userData}
+                      setUserData={setUserData}
+                      selectedUser={data}
+                    />
+                    <DeleteButton
+                      userData={userData}
+                      setUserData={setUserData}
+                      selectedUser={data}
+                    />
                   </td>
                 </tr>
               ))
