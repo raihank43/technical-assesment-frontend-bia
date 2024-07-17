@@ -83,7 +83,7 @@ export default function TableData({
                     {dateFormatter(data.createdAt)}
                   </td>
                   <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700 flex justify-center gap-2">
-                    <ViewComponents />
+                    <ViewComponents user={data} />
                     <UpdateUserComponents
                       userData={userData}
                       setUserData={setUserData}

@@ -14,7 +14,7 @@ import { BiPlus } from "react-icons/bi";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useState } from "react";
 import { UserDataInterface } from "@/interfaces/userDataInterface";
-import { addUser, getUser } from "@/api/api";
+import { addUser } from "@/api/api";
 import { useToast } from "@/components/ui/use-toast";
 
 export default function AddUserComponents({
@@ -49,15 +49,17 @@ export default function AddUserComponents({
       });
       return;
     }
-    await addUser(data);
+    const newData = await addUser(data);
     toast({
       description: "Berhasil Menambahkan User Baru.",
       className: "bg-green-500 border-none text-white font-bold",
     });
-    const fetchData = await getUser();
-    setUserData(fetchData);
+    setUserData([...userData, newData]);
+    setName("");
+    setAlamat("");
+    setGender("");
+    setBirthDate("");
 
-    console.log({ fetchData });
     // Simulasikan penekanan tombol ESC
     const escEvent = new KeyboardEvent("keydown", { key: "Escape" });
     document.dispatchEvent(escEvent);

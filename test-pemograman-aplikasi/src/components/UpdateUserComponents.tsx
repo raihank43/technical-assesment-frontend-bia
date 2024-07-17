@@ -15,6 +15,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { UserDataInterface } from "@/interfaces/userDataInterface";
 import { useState } from "react";
 import { useToast } from "./ui/use-toast";
+import { formatDate } from "@/utils/dateFormatter";
 
 export default function UpdateUserComponents({
   userData,
@@ -28,12 +29,15 @@ export default function UpdateUserComponents({
   const [name, setName] = useState<string>(selectedUser.name);
   const [alamat, setAlamat] = useState<string>(selectedUser.alamat);
   const [gender, setGender] = useState<string>(selectedUser.gender);
-  const [birthDate, setBirthDate] = useState<string>("");
+  const [birthDate, setBirthDate] = useState<string>(
+    formatDate(selectedUser.birthDate)
+  );
 
   const { toast } = useToast();
 
   const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log({ birthDate });
     const data: UserDataInterface = {
       id: selectedUser.id,
       name,

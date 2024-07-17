@@ -8,9 +8,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { UserDataInterface } from "@/interfaces/userDataInterface";
 import { FaEye } from "react-icons/fa";
 
-export default function ViewComponents() {
+export default function ViewComponents({ user }: { user: UserDataInterface }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -26,17 +27,29 @@ export default function ViewComponents() {
             Berikut ini adalah detail user yang dipilih.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis deserunt odit obcaecati necessitatibus dolore
-              voluptatibus repudiandae.
-            </p>
-          </div>
+        <div className="bg-white shadow-md rounded-lg p-6 mb-4">
+          <h2 className="text-xl font-bold mb-2">{user.name}</h2>
+          <p className="text-gray-700">
+            <strong>Gender:</strong> {user.gender}
+          </p>
+          <p className="text-gray-700">
+            <strong>Birth Date:</strong>{" "}
+            {new Date(user.birthDate).toLocaleDateString()}
+          </p>
+          <p className="text-gray-700">
+            <strong>Alamat:</strong> {user.alamat}
+          </p>
+          <p className="text-gray-700">
+            <strong>Created At:</strong>{" "}
+            {new Date(user.createdAt).toLocaleDateString()}
+          </p>
+          <p className="text-gray-700">
+            <strong>Updated At:</strong>{" "}
+            {new Date(user.updatedAt).toLocaleDateString()}
+          </p>
         </div>
         <DialogFooter>
-          <Button>Close</Button>
+          {/* <Button>Close</Button> */}
         </DialogFooter>
       </DialogContent>
     </Dialog>
