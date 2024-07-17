@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "John Doe",
       "gender": "Laki-Laki",
       "birthDate": "1990-01-01T00:00:00.000Z",
@@ -10,58 +10,22 @@
       "updatedAt": "2022-03-01T00:00:00.000Z"
     },
     {
-      "id": 2,
-      "name": "Jane Smith",
-      "birthDate": "1990-01-01T00:00:00.000Z",
-      "gender": "Laki-Laki",
+      "id": "2",
+      "name": "Jane Doe",
+      "gender": "Perempuan",
+      "birthDate": "1995-01-01T00:00:00.000Z",
       "alamat": "Jl. Raya No. 2",
       "createdAt": "2022-03-01T00:00:00.000Z",
       "updatedAt": "2022-03-01T00:00:00.000Z"
     },
     {
-      "id": 3,
-      "name": "Emilia Watson",
-      "birthDate": "1990-01-01T00:00:00.000Z",
-      "gender": "Perempuan",
+      "id": "3",
+      "name": "Bane Doe",
+      "gender": "Laki-Laki",
+      "birthDate": "1998-01-01T00:00:00.000Z",
       "alamat": "Jl. Raya No. 3",
       "createdAt": "2022-03-01T00:00:00.000Z",
       "updatedAt": "2022-03-01T00:00:00.000Z"
-    },
-    {
-      "id": 4,
-      "name": "awdawd",
-      "alamat": "awdawd",
-      "gender": "Perempuan",
-      "birthDate": "2024-07-02T00:00:00.000Z",
-      "createdAt": "2024-07-17T10:14:43.519Z",
-      "updatedAt": "2024-07-17T10:14:43.519Z"
-    },
-    {
-      "id": 5,
-      "name": "NIGGA",
-      "alamat": "awdawd",
-      "gender": "Perempuan",
-      "birthDate": "2024-07-02T00:00:00.000Z",
-      "createdAt": "2024-07-17T10:14:50.903Z",
-      "updatedAt": "2024-07-17T10:14:50.903Z"
-    },
-    {
-      "id": 6,
-      "name": "asdasd",
-      "alamat": "asdasd",
-      "gender": "Laki-Laki",
-      "birthDate": "2024-07-26T00:00:00.000Z",
-      "createdAt": "2024-07-17T10:18:15.079Z",
-      "updatedAt": "2024-07-17T10:18:15.079Z"
-    },
-    {
-      "id": 7,
-      "name": "asdasd",
-      "alamat": "asdasd",
-      "gender": "Laki-Laki",
-      "birthDate": "2024-07-26T00:00:00.000Z",
-      "createdAt": "2024-07-17T10:18:34.423Z",
-      "updatedAt": "2024-07-17T10:18:34.423Z"
     }
   ]
 }
