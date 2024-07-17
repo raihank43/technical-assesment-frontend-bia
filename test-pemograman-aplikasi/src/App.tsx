@@ -1,22 +1,15 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { Button } from "@/components/ui/button";
+import TableData from "./components/TableData";
+import AddUserComponents from "./components/AddUserComponents";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <Button onClick={() => setCount((count) => count + 1)}>Increment</Button>
-      <Button onClick={() => setCount((count) => count - 1)}>Decrement</Button>
-      <div>
-        <img src={reactLogo} alt="React Logo" />
-        <img src={viteLogo} alt="Vite Logo" />
-      </div>
-      <div>Count: {count}</div>
-    </>
+    <main className="flex justify-center items-center min-h-screen bg-gray-200 ">
+      <section className="flex flex-col ">
+        <AddUserComponents />
+        <TableData />
+      </section>
+    </main>
   );
 }
 
