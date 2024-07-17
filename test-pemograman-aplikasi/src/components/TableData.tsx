@@ -1,8 +1,19 @@
+import { UserDataInterface } from "@/interfaces/userDataInterface";
 import DeleteButton from "./DeleteButton";
 import UpdateUserComponents from "./UpdateUserComponents";
 import ViewComponents from "./ViewComponents";
+import dateFormatter from "@/utils/dateFormatter";
+import { FaSpinner } from "react-icons/fa";
 
-export default function TableData() {
+export default function TableData({
+  userData,
+  setUserData,
+  loading,
+}: {
+  userData: UserDataInterface[];
+  setUserData: React.Dispatch<React.SetStateAction<UserDataInterface[]>>;
+  loading: boolean;
+}) {
   return (
     <div className="container mx-auto p-4">
       <div className="overflow-x-auto shadow-lg rounded-lg border-1 border-black">
@@ -29,31 +40,56 @@ export default function TableData() {
             </tr>
           </thead>
           <tbody>
-            <tr className="hover:bg-gray-100">
-              <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">
-                1
-              </td>
-              <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">
-                Raihan
-              </td>
-              <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">
-                Data 3
-              </td>
-              <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">
-                Data 3
-              </td>
-              <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">
-                Data 3
-              </td>
-              <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">
-                Data 3
-              </td>
-              <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700 flex justify-center gap-2">
-                <ViewComponents />
-                <UpdateUserComponents />
-                <DeleteButton />
-              </td>
-            </tr>
+            {loading ? (
+              <tr>
+                <td
+                  colSpan={6}
+                  className="py-4 px-4 border-b border-gray-200 text-center text-sm text-gray-700 font-bold"
+                >
+                  <div className="flex gap-2 justify-center items-center">
+                    <FaSpinner className="animate-spin" />
+                    Loading...
+                  </div>
+                </td>
+              </tr>
+            ) : userData.length == 0 ? (
+              <tr>
+                <td
+                  colSpan={6}
+                  className="py-4 px-4 border-b border-gray-200 text-center text-sm text-gray-700 font-bold"
+                >
+                  Data Kosong.
+                </td>
+              </tr>
+            ) : (
+              userData.map((data, index) => (
+                <tr className="hover:bg-gray-100" key={data.id}>
+                  <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">
+                    {index + 1}
+                  </td>
+                  <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">
+                    {data.name}
+                  </td>
+                  <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">
+                    {data.alamat}
+                  </td>
+                  <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">
+                    {data.gender}
+                  </td>
+                  <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">
+                    {dateFormatter(data.birthDate)}
+                  </td>
+                  <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">
+                    {dateFormatter(data.createdAt)}
+                  </td>
+                  <td className="py-2 px-4 border-b border-gray-200 text-sm text-gray-700 flex justify-center gap-2">
+                    <ViewComponents />
+                    <UpdateUserComponents />
+                    <DeleteButton />
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
